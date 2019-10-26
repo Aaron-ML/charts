@@ -49,8 +49,13 @@ serviceMonitor:
   # telemetryPath: /metrics
   # Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator
   # labels:
+  # Import selected labels from service to prometheus
+  # targetLabels: []
+  # Import selected labels from pod to prometheus
+  # podTargetLabels: []
   # Set timeout for scrape
   # timeout: 10s
+
 
 # Used to mount a LUA-Script via config map and use it for metrics-collection
 # script:

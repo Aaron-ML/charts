@@ -24,6 +24,13 @@ spec:
     scrapeTimeout: {{ .Values.serviceMonitor.timeout }}
 {{- end }}
   jobLabel: {{ template "prometheus-redis-exporter.fullname" . }}
+  targetLabels:
+{{ toYaml . | trim | indent 4 -}}
+  {{- end }}
+  {{- with .Values.serviceMonitor.podTargetLabels }}
+  podTargetLabels:
+{{ toYaml . | trim | indent 4 -}}
+  {{- end }}
   namespaceSelector:
     matchNames:
     - {{ .Release.Namespace }}
